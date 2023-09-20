@@ -7,7 +7,7 @@ const apiKey = "IzjqfEL1ITBGQrac2m7bjGM4PWARcr7zfCIO7PlON2DnpsZo8MSvC6Lu";
 const perPage = 15;
 let currentPage = 1;
 let searchTerm = "";
-console.log(perPage)
+
 function getImages(url) {
     fetch(url, {
         method: 'GET',
@@ -52,9 +52,11 @@ searchInput.addEventListener("keyup", (e) => {
     }
 });
 
+
+
 loadMoreBtn.addEventListener("click", () => {
-    currentPage++; // Incrementa di 1
-    let apiUrl = `https://api.pexels.com/v1/curated?page=${currentPage}&per_page=${perPage}`;
+    currentPage++; // Incrementa più foto
+     let apiUrl = `https://api.pexels.com/v1/curated?page=${currentPage}&per_page=${perPage}`;
     if (searchTerm) {
         apiUrl = `https://api.pexels.com/v1/search?query=${searchTerm}&page=${currentPage}&per_page=${perPage}`;
     }
@@ -62,5 +64,7 @@ loadMoreBtn.addEventListener("click", () => {
 });
 
 getImages(`https://api.pexels.com/v1/curated?page=${currentPage}&per_page=${perPage}`);
+
+
 
 
